@@ -1,6 +1,8 @@
 import HomePage from '../pages/homePage/homePage';
+import CarDetailsPage from '../pages/carDetailsPage/carDetailsPage';
+import SummaryPage from '../pages/summaryPage/summaryPage';
 
-describe('Smoke Test', () => {
+describe('Smoke Tests', () => {
   it('Submit search form', () => {
 
     // Given
@@ -25,8 +27,38 @@ describe('Smoke Test', () => {
 
     // Then
     hp.elements.getSearchResults()
+    hp.elements.getSearchResultsColumns().should(($th) => {
+      expect($th).to.have.length(hp.listOfColumnsNames().length)
+      hp.listOfColumnsNames().forEach((x, i) => expect($th.eq(i)).to.contain(x));
+    })
+
   })
-  // it('Check car', () => {
-  //   cy.get('[href="/rent/4]"')
-  // })
+
+  it('ToDo: Check details of first car from list', () => {
+
+    // Given 
+    cy.createSession(HomePage)
+    var cdp = new CarDetailsPage()
+
+    // When
+    cdp.visit()
+    cdp.elements.getRentButton()
+
+    // Then
+
+  })
+
+
+  it('ToDo: Properly filled fields', () => {
+
+    // Given 
+    cy.createSession(HomePage)
+    var sp = new SummaryPage()
+
+    // When
+    sp.visit()
+
+    // Then
+
+  })
 })

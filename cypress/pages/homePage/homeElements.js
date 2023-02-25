@@ -28,6 +28,11 @@ class HomeElements {
       getSearchResults() {
         return cy.get(this.locators.SEARCH_RESULTS_ID)
       }
+
+      getSearchResultsColumns() {
+        return cy.get(this.locators.COL_SCOPE)
+      }
+
     }
     
     export default HomeElements;

@@ -8,6 +8,7 @@ class HomeLocators {
     MODEL_ID = '[id="model"]'
     SEARCH_FORM_ID = '[id="search_form"]'
     SEARCH_RESULTS_ID = '[id="search-results"]'
+    COL_SCOPE = '[scope="col"]'
   }
   
   export default HomeLocators;

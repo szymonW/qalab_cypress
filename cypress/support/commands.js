@@ -32,3 +32,18 @@ Cypress.Commands.add('addDate', (get, date) => {
     var temp_date = getYear + "-" + getMonth + "-" + getDay
     cy.get(get).type(temp_date)
   })
+
+
+  Cypress.Commands.add('createSession', (pageObject) => {
+    var hp = new pageObject()
+    var pickup_date = new Date()
+    var dropoff_date = new Date()
+    dropoff_date.setDate(pickup_date.getDate() + 32)
+
+    cy.session('user', () => {
+      hp.visit()
+      cy.addDate(hp.locators.PICKUP_ID, pickup_date)
+      cy.addDate(hp.locators.DROPOFF_ID, dropoff_date)
+      hp.submit()
+    })
+  })

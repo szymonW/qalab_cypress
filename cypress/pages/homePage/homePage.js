@@ -34,6 +34,19 @@ class HomePage {
       const button = this.elements.getSearchFoorm()
       button.submit();
     }
+    
+    listOfColumnsNames() {
+      return [
+        '#',
+        'Company',
+        'Model',
+        'License plate',
+        'Price',
+        'Price per day',
+        'Action',
+      ]
+    }
+    
   }
   
   export default HomePage;
