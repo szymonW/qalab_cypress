@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// -- This will type date with format YYYY-MM-DD --
+Cypress.Commands.add('addDate', (get, date) => {
+    var getYear = date.toLocaleString("default", { year: "numeric" })
+    var getMonth = date.toLocaleString("default", { month: "2-digit" })
+    var getDay = date.toLocaleString("default", { day: "2-digit" })
+    var temp_date = getYear + "-" + getMonth + "-" + getDay
+    cy.get(get).type(temp_date)
+  })
