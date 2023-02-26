@@ -15,6 +15,18 @@ class CarDetailsPage {
       const button = this.elements.getRentButton()
       button.click();
     }
+
+    compareModel(value) {
+      var field = this.elements.getModel()
+      field.should('contain', value)
+      return this;
+  }
+
+  compareCompany(value) {
+    var field = this.elements.getCompany()
+    field.should('contain', value)
+    return this;
+}
     
   }
   

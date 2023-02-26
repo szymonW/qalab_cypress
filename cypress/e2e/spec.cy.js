@@ -39,6 +39,8 @@ describe('Smoke Tests', () => {
     // Given 
     cy.createSession(HomePage)
     var cdp = new CarDetailsPage()
+    let MODEL = 'Mazda 3'
+    let COMPANY = 'Company: Lindsey Ltd'
     var detailsOfFirstCar = [
         'Price per day: 97$',
         'Location: France, Paris',
@@ -49,6 +51,8 @@ describe('Smoke Tests', () => {
     cdp.visit()
 
     // Then
+    cdp.compareModel(MODEL)
+    cdp.compareCompany(COMPANY)
     cdp.elements.getDetails()
     cdp.elements.getDetails().should(($p) => {
       expect($p).to.have.length(detailsOfFirstCar.length)
