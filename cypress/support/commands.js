@@ -39,11 +39,17 @@ Cypress.Commands.add('addDate', (get, date) => {
     var pickup_date = new Date()
     var dropoff_date = new Date()
     dropoff_date.setDate(pickup_date.getDate() + 32)
+    var random_session = "testSessionName" + Math.random()
 
-    cy.session('user', () => {
+    cy.session(random_session, () => {
       hp.visit()
       cy.addDate(hp.locators.PICKUP_ID, pickup_date)
       cy.addDate(hp.locators.DROPOFF_ID, dropoff_date)
       hp.submit()
     })
+  })
+
+  Cypress.Commands.add('errorHandling', () => {
+    cy.title().should('not.contains', 'Exception')
+    cy.title().should('not.contains', 'Page not found')
   })

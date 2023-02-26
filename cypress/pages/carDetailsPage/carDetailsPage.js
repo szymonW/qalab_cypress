@@ -10,6 +10,11 @@ class CarDetailsPage {
     visit() {
       cy.visit('http://qalab.pl.tivixlabs.com/details/1')
     }
+
+    pressRentButton() {
+      const button = this.elements.getRentButton()
+      button.click();
+    }
     
   }
   

@@ -34,31 +34,52 @@ describe('Smoke Tests', () => {
 
   })
 
-  it('ToDo: Check details of first car from list', () => {
+  it('Check details of first car from list (fixed values)', () => {
 
     // Given 
     cy.createSession(HomePage)
     var cdp = new CarDetailsPage()
+    var detailsOfFirstCar = [
+        'Price per day: 97$',
+        'Location: France, Paris',
+        'License plate: CRW-9074',
+      ]
 
     // When
     cdp.visit()
-    cdp.elements.getRentButton()
 
     // Then
+    cdp.elements.getDetails()
+    cdp.elements.getDetails().should(($p) => {
+      expect($p).to.have.length(detailsOfFirstCar.length)
+      detailsOfFirstCar.forEach((x, i) => expect($p.eq(i)).to.contain(x));
+    })
+    cdp.pressRentButton()
+    cy.url().should('include', '/rent/1')
 
   })
 
 
-  it('ToDo: Properly filled fields', () => {
+  it('Submit properly filled fields', () => {
 
     // Given 
     cy.createSession(HomePage)
     var sp = new SummaryPage()
+    let NAME = 'Simon'
+    let LAST_NAME = 'Ott'
+    let CARD_NUMBER = '123456789012345'
+    let EMAIL_ADDR = 's_ott@gmail.com'
 
     // When
     sp.visit()
+    sp.fillName(NAME)
+    sp.fillLastName(LAST_NAME)
+    sp.fillCardNumber(CARD_NUMBER)
+    sp.fillEmailAddr(EMAIL_ADDR)
+    sp.submit()
 
     // Then
+    cy.errorHandling()
 
   })
 })

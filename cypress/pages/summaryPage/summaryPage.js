@@ -10,6 +10,40 @@ class SummaryPage {
     visit() {
       cy.visit('http://qalab.pl.tivixlabs.com/rent/1')
     }
+
+    
+    submit() {
+      const button = this.elements.getForm()
+      button.submit(true);
+    }
+
+    fillName(value) {
+      const field = this.elements.getName()
+      field.clear();
+      field.type(value);
+      return this;
+    }
+
+    fillLastName(value) {
+      const field = this.elements.getLastName()
+      field.clear();
+      field.type(value);
+      return this;
+    }
+
+    fillCardNumber(value) {
+      const field = this.elements.getCardNumber()
+      field.clear();
+      field.type(value);
+      return this;
+    }
+
+    fillEmailAddr(value) {
+      const field = this.elements.getEmailAddr()
+      field.clear();
+      field.type(value);
+      return this;
+    }
     
   }
   
