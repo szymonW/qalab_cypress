@@ -4,7 +4,6 @@ class HomeElements {
   constructor() {
     this.locators = new HomeLocatrors();
   }
-    
       getDatesError() {
         return cy.get(this.locators.DATES_ERROR_CLASS)
       }
@@ -32,7 +31,6 @@ class HomeElements {
       getSearchResultsColumns() {
         return cy.get(this.locators.COL_SCOPE)
       }
-
     }
-    
+
     export default HomeElements;

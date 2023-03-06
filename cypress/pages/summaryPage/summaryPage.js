@@ -8,7 +8,7 @@ class SummaryPage {
   }
 
     visit() {
-      cy.visit('http://qalab.pl.tivixlabs.com/rent/1')
+      cy.visit('/rent/1')
     }
 
     

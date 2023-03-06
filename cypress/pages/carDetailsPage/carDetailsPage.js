@@ -8,7 +8,7 @@ class CarDetailsPage {
   }
 
     visit() {
-      cy.visit('http://qalab.pl.tivixlabs.com/details/1')
+      cy.visit('/details/1')
     }
 
     pressRentButton() {
@@ -17,13 +17,13 @@ class CarDetailsPage {
     }
 
     compareModel(value) {
-      var field = this.elements.getModel()
+      let field = this.elements.getModel()
       field.should('contain', value)
       return this;
   }
 
   compareCompany(value) {
-    var field = this.elements.getCompany()
+    let field = this.elements.getCompany()
     field.should('contain', value)
     return this;
 }

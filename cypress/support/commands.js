@@ -33,7 +33,6 @@ Cypress.Commands.add('addDate', (get, date) => {
     cy.get(get).type(temp_date)
   })
 
-
   Cypress.Commands.add('createSession', (pageObject) => {
     var hp = new pageObject()
     var pickup_date = new Date()

@@ -6,12 +6,12 @@ describe('Smoke Tests', () => {
   it('Submit search form', () => {
 
     // Given
-    var hp = new HomePage()
+    let hp = new HomePage()
     let SELECT_POLAND = 'Poland'
     let SELECT_WROCLAW = 'Wroclaw'
     let MODEL = 'Skoda Octavia'
-    var pickup_date = new Date()
-    var dropoff_date = new Date()
+    let pickup_date = new Date()
+    let dropoff_date = new Date()
     dropoff_date.setDate(pickup_date.getDate() + 32)
 
     // When
@@ -38,10 +38,10 @@ describe('Smoke Tests', () => {
 
     // Given 
     cy.createSession(HomePage)
-    var cdp = new CarDetailsPage()
+    let cdp = new CarDetailsPage()
     let MODEL = 'Mazda 3'
     let COMPANY = 'Company: Lindsey Ltd'
-    var detailsOfFirstCar = [
+    let detailsOfFirstCar = [
         'Price per day: 97$',
         'Location: France, Paris',
         'License plate: CRW-9074',
@@ -63,12 +63,11 @@ describe('Smoke Tests', () => {
 
   })
 
-
   it('Submit properly filled fields', () => {
 
     // Given 
     cy.createSession(HomePage)
-    var sp = new SummaryPage()
+    let sp = new SummaryPage()
     let NAME = 'Simon'
     let LAST_NAME = 'Ott'
     let CARD_NUMBER = '123456789012345'

@@ -8,7 +8,7 @@ class HomePage {
   }
 
     visit() {
-      cy.visit('http://qalab.pl.tivixlabs.com/')
+      cy.visit('/')
     }
     
     selectCountry(value) {
